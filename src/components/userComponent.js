@@ -7,18 +7,25 @@ import CardComponent from './cardComponent';
 const UserComponent = () => {
 
     const dispatch = useDispatch();
-    const users = useSelector(state => state.users);
+    const users = useSelector(state => state.UsersReducer.users);
 
     useEffect(() => {
         dispatch(getUsers([
             {
                 id: 1,
                 name: "abc"
+            },
+            {
+                id: 2,
+                name: "EFG"
+            },
+            {
+                id: 3,
+                name: "ghi"
             }
         ]))
     }, [])
 
-    console.log("[][][][]", users)
 
     return (
         <div>

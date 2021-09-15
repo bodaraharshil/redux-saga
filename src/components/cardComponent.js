@@ -3,7 +3,7 @@ import React from 'react'
 const CardComponent = (props) => {
     return (
         <div>
-            <h3>{props?.name}</h3>
+            <h3>{props?.item?.name}</h3>
         </div>
     )
 }
