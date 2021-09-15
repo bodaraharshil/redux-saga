@@ -8,27 +8,17 @@ const UserComponent = () => {
 
     const dispatch = useDispatch();
     const users = useSelector(state => state.UsersReducer.users);
+    const loading = useSelector(state => state.UsersReducer.loading);
+    const error = useSelector(state => state.UsersReducer.error);
 
     useEffect(() => {
-        dispatch(getUsers([
-            {
-                id: 1,
-                name: "abc"
-            },
-            {
-                id: 2,
-                name: "EFG"
-            },
-            {
-                id: 3,
-                name: "ghi"
-            }
-        ]))
+        dispatch(getUsers())
     }, [])
 
 
     return (
         <div>
+            {loading && <p>Loading............</p>}
             {users.map((item, index) => {
                 return (
                     <div>
@@ -36,6 +26,7 @@ const UserComponent = () => {
                     </div>
                 )
             })}
+            {error && !loading && <p>{error}</p>}
         </div>
     )
 }
